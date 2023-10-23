@@ -6,7 +6,7 @@
          onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" [(ngModel)]="valor"> <br><br>
       <label id="campo">-->{{cadena}}{{valor}}</label> <br><br>
 
-      <button type="button" (click)="calcular('+'); valor=''"><h3>Sumar</h3></button>
+      <button type="button" (click)="calcular('+'); valor=''"><h3>Sumar</h3></button> <br><br>
 
       <button type="button" id="igual" (click)="calcular('='); valor=''; cadena=''"><h3>=</h3></button> <br><br>
 

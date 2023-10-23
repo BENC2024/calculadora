@@ -15,7 +15,7 @@ export class AppComponent {
   total:number = 0;
 
   calcular(aux:String){
-
+   this.total = 0;
    switch (aux) {
       case '+':
          if(this.valor == ''){
@@ -46,20 +46,19 @@ export class AppComponent {
       case '=':
          if (this.valor == '') {
             this.listaValor = [];
-            this.total = 0;
             this.cadena = "Syntax Error";
          }
          else{
-            this.total = 0;
             this.listaValor.push(parseInt(this.valor));
             console.log(this.listaValor);
             for (let i = 0; i < this.listaValor.length; i++) {
                this.total = this.total+this.listaValor[i];
             }
             this.listaValor = [];
+            this.cadena='';
          }
          break;
-   }
+      }
    }
 
 }
