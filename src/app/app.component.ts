@@ -5,6 +5,61 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
+
 export class AppComponent {
   title = 'calculadora';
+  listaValor:Array<number> = [];
+  valor:string = "";
+  cadena: string = "";
+  aux = 0;
+  total:number = 0;
+
+  calcular(aux:String){
+
+   switch (aux) {
+      case '+':
+         if(this.valor == ''){
+            console.log(this.listaValor);
+         }
+         else{
+            this.listaValor.push(parseInt(this.valor));
+            console.log(this.listaValor);
+            this.cadena = this.cadena + this.valor + "+";
+         }         
+         break;
+      case '-':
+         this.listaValor.push(parseInt(this.valor));
+         console.log(this.listaValor);
+         this.cadena = this.cadena + this.valor + "-";
+         break;
+      case '*':
+         this.listaValor.push(parseInt(this.valor));
+         console.log(this.listaValor);
+         this.cadena = this.cadena + this.valor + "*";
+         break;
+      case '/':
+         this.listaValor.push(parseInt(this.valor));
+         console.log(this.listaValor);
+         this.cadena = this.cadena + this.valor + "/";
+         break;
+   
+      case '=':
+         if (this.valor == '') {
+            this.listaValor = [];
+            this.total = 0;
+            this.cadena = "Syntax Error";
+         }
+         else{
+            this.total = 0;
+            this.listaValor.push(parseInt(this.valor));
+            console.log(this.listaValor);
+            for (let i = 0; i < this.listaValor.length; i++) {
+               this.total = this.total+this.listaValor[i];
+            }
+            this.listaValor = [];
+         }
+         break;
+   }
+   }
+
 }
